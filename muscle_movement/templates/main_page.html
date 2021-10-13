@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_title %}
+    <title>MM - {{ page_headding }}</title>
+{% endblock %}
+
+{% block top_bar %}
+    {% include "top_bar.html" with page_headding=page_headding module_main_page=module_main_page %}
+{% endblock %}
+
+{% block head %}
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+        <!-- Third party plugin CSS-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+    <!--===============================================================================================-->
+        <script src="{% static 'js/main_page.js' %}"></script>
+    <!--===============================================================================================-->
+{% endblock %}
+
+{% block page_contents %}
+<section class="scrollable0">
+    <div lang="en">
+
+        <div id="page-top">
+            <!-- Masthead-->
+            <section style="padding-top: 20px">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center justify-content-center text-center">
+                        <div class="col-lg-10 align-self-end">
+                            <h1 class="text-uppercase text-white font-weight-bold">Track Facial Expressions</h1>
+                            <hr class="divider my-4" style="max-width: 25.0rem !important;" />
+                        </div>
+                        <div class="col-lg-8 align-self-baseline">
+{#                            <p class="text-white-75 font-weight-light mb-5">----------------------------------</p>#}
+                            <form class="image-upload-form p-b-33 p-t-5" id="image_upload_form">
+                                {% csrf_token %}
+                                <div class="wrap-input100 d-flex">
+                                    <input class="1custom-file-input pl-4" type="file" name="image_0" id="image_0" placeholder="Upload second image">
+                                    <div class="w-50">
+                                        <img src="" id="image_0_preview" style="height: 100px; width: 100px; display: none">
+                                    </div>
+                                </div>
+                                <div class="wrap-input100 d-flex">
+                                    <input class="1custom-file-input pl-4" type="file" name="image_1" id="image_1" placeholder="Upload second image">
+                                    <div class="w-50">
+                                        <img src="" id="image_1_preview" style="height: 100px; width: 100px; display: none">
+                                    </div>
+                                </div>
+                                <div class="container-login100-form-btn m-t-32">
+                                    <button class="image-submit-btn">
+                                        Upload
+                                    </button>
+                                </div>
+                            </form>
+                            <div class="final_image_div" style="display: none">
+                                <h2>Detected movement:</h2>
+                                <img id="final_image" src=""
+                                     alt="img"
+                                     style="width: 300px;
+                                            height: 300px;"
+                                     class="company-img">
+                                <div class="container-login100-form-btn m-t-32">
+                                    <button class="image-submit-btn do_another">Do another</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer-->
+            <footer class="py-5">
+                <div class="container"><div class="small text-center text-muted">Copyright © 2020 - by Azil Fozan</div></div>
+            </footer>
+        </div>
+    </div>
+</section>
+{% endblock %}
