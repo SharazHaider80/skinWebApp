@@ -33,7 +33,7 @@
     {% endblock %}
 
 </head>
-<body>
+<body style="background-color: antiquewhite;" class="d-flex justify-content-center">
 {% if request.user.is_authenticated %}
     <aside>
         <a class="btn" href="/welcome_page/"
@@ -66,13 +66,13 @@
 
     </aside>
 {% endif %}
-    <div id="page_contents_full">
+    <div id="page_contents_full1"">
         <div id="top_bar">
             {% block top_bar %}
             {% endblock %}
         <hr>
         </div>
-        <div id="page_contents" {# class="scrollable" #}>
+        <div id="page_contents1" {# class="scrollable" #}>
             {% block page_contents %}
             {% endblock %}
         </div>

@@ -25,6 +25,8 @@ $(document).ready(function () {
                 if (resp.success) {
                     $('.final_image_div').show();
                     $("#final_image").attr("src",resp.image_str);
+                    $("#original_image_0").attr("src", $("#image_0")[0].files[0]);
+                    $("#original_image_0").attr("src", $("#image_1")[0].files[0]);
                     $('#image_upload_form').hide();
                     show_snackbar_message(resp.message, "success");
                 } else {
@@ -47,9 +49,11 @@ $(document).ready(function () {
         if (this.files && this.files[0]) {
           //Reading Seelcted Image
           var reader = new FileReader();
+          var final_preview_id = `#${event.target.id}_original`;
           //Showing Image in Preview
           reader.onload = function(e) {
             img_selector.attr("src", e.target.result);
+            $(final_preview_id).attr("src", e.target.result);
             img_selector.show();
           };
           reader.readAsDataURL(this.files[0]);
